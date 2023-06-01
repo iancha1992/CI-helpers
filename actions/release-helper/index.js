@@ -27,7 +27,7 @@ myfunction();
 
 
 console.log("This is the issue_comments_response")
-console.log(result.data);
+console.log(result);
 
 
 
