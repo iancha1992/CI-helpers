@@ -10,15 +10,21 @@ const octokit = github.getOctokit(token);
 // const octokit = new Octokit({
 //     auth: 'YOUR-TOKEN'
 // })
-  
-const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
-    owner: 'OWNER',
-    repo: 'REPO',
-    issue_number: '9',
-    headers: {
-        'X-GitHub-Api-Version': '2022-11-28'
-    }
-})
+
+async function myfunction() {
+    console.log("Running myfunction")
+    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
+        owner: 'OWNER',
+        repo: 'REPO',
+        issue_number: '9',
+        headers: {
+            'X-GitHub-Api-Version': '2022-11-28'
+        }
+    })
+}
+
+myfunction();
+
 
 console.log("This is the issue_comments_response")
 console.log(result.data);
