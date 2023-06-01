@@ -20,7 +20,11 @@ async function myfunction() {
         headers: {
             'X-GitHub-Api-Version': '2022-11-28'
         }
-    })
+    });
+
+    console.log("Result?")
+    console.log(result)
+    
 }
 
 myfunction();
