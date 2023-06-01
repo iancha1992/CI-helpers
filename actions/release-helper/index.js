@@ -23,7 +23,7 @@ async function myfunction() {
     });
 
     console.log("Result?")
-    console.log(result)
+    console.log(result.data)
     
 }
 
