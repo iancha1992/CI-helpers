@@ -11,7 +11,7 @@ const octokit = github.getOctokit(token);
 //     auth: 'YOUR-TOKEN'
 // })
   
-const result = octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
+const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
     owner: 'OWNER',
     repo: 'REPO',
     issue_number: '9',
