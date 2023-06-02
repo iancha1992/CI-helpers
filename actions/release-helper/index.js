@@ -10,10 +10,9 @@ const octokit = github.getOctokit(token);
 // const octokit = new Octokit({
 //     auth: 'YOUR-TOKEN'
 // })
-var result;
 async function myfunction() {
     console.log("Running myfunction")
-    result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
+    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
         owner: 'OWNER',
         repo: 'REPO',
         issue_number: '9',
@@ -29,13 +28,6 @@ async function myfunction() {
 
 myfunction();
 
-
-console.log("This is the issue_comments_response")
-console.log(result);
-
-
-
-
 console.log("Javascript hello world!!!!!");
 
 const payload = github.context.payload;
@@ -43,6 +35,9 @@ const payload = github.context.payload;
 
 console.log("This is the payload")
 console.log(payload);
+
+console.log("This is the issue body")
+console.log(payload.issue.body)
 
 
 console.log("This is the issue!!!!!")
