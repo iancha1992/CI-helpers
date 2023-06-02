@@ -12,7 +12,7 @@ const octokit = github.getOctokit(token);
 // })
 async function myfunction() {
     console.log("Running myfunction")
-    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/9/comments', {
+    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/1/comments', {
         owner: 'OWNER',
         repo: 'REPO',
         issue_number: '9',
@@ -51,3 +51,14 @@ issue_number = `https://api.github.com/repos/iancha1992/gh_practice/issues/${iss
 
 
 // https://api.github.com/repos/iancha1992/gh_practice/issues/8/comments
+
+
+
+
+
+
+
+
+
+
+
