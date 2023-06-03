@@ -7,7 +7,7 @@ inputs:
     default: ${{ github.token }}
   issue_number:
     required: false
-    default: ${{ github.event }}
+    default: ${{ github }}
 
 runs:
   using: 'node16'
