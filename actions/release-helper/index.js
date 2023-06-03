@@ -12,23 +12,23 @@ const octokit = github.getOctokit(token);
 // })
 
 
-// async function myfunction() {
-//     console.log("Running myfunction")
-//     const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/1/comments', {
-//         owner: 'OWNER',
-//         repo: 'REPO',
-//         issue_number: '9',
-//         headers: {
-//             'X-GitHub-Api-Version': '2022-11-28'
-//         }
-//     });
+async function myfunction() {
+    console.log("Running myfunction")
+    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/1/comments', {
+        owner: 'OWNER',
+        repo: 'REPO',
+        // issue_number: '9',
+        headers: {
+            'X-GitHub-Api-Version': '2022-11-28'
+        }
+    });
 
-//     console.log("Result?")
-//     console.log(result.data)
+    console.log("Result?")
+    console.log(result.data)
     
-// }
+}
 
-// myfunction();
+myfunction();
 
 
 console.log("Javascript hello world!!!!!");
