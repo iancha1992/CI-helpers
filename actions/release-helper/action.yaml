@@ -5,9 +5,9 @@ inputs:
     description: 'The GitHub token'
     required: false
     default: ${{ github.token }}
-  issue_number:
-    required: false
-    default: ${{ github.issue_number }}
+  # issue_number:
+  #   required: false
+  #   default: ${{ github.issue_number }}
 
 runs:
   using: 'node16'

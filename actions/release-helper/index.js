@@ -11,11 +11,13 @@ const octokit = github.getOctokit(token);
 //     auth: 'YOUR-TOKEN'
 // })
 console.log("Testing adam")
-console.log(core.getInput("issue_number"))
+const payload = github.context.payload;
+const issue_number = payload.issue.number;
+
 
 async function myfunction() {
     console.log("Running myfunction")
-    const result = await octokit.request('GET /repos/iancha1992/gh_practice/issues/1/comments', {
+    const result = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/comments`, {
         owner: 'OWNER',
         repo: 'REPO',
         // issue_number: '9',
@@ -34,7 +36,7 @@ myfunction();
 
 console.log("Javascript hello world!!!!!");
 
-const payload = github.context.payload;
+
 
 
 console.log("This is the payload")
@@ -44,14 +46,6 @@ console.log("This is the issue body")
 console.log(payload.issue.body)
 
 
-console.log("This is the issue!!!!!")
-console.log(payload.issue.number)
-issue_number = payload.issue.number
-
-
-
-
-issue_number = `https://api.github.com/repos/iancha1992/gh_practice/issues/${issue_number}/comments`
 
 
 // https://api.github.com/repos/iancha1992/gh_practice/issues/8/comments
