@@ -10,7 +10,8 @@ const octokit = github.getOctokit(token);
 // const octokit = new Octokit({
 //     auth: 'YOUR-TOKEN'
 // })
-
+console.log("Testing adam")
+console.log(core.getInput("issue_number"))
 
 async function myfunction() {
     console.log("Running myfunction")

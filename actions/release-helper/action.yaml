@@ -5,6 +5,10 @@ inputs:
     description: 'The GitHub token'
     required: false
     default: ${{ github.token }}
+  issue_number:
+    required: false
+    default: ${{ github.event }}
+
 runs:
   using: 'node16'
   main: 'index.js'
