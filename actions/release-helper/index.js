@@ -62,7 +62,12 @@ async function myfunction() {
         for (e of data) {
             console.log("This is my event")
             console.log(e)
+            // if (e.actor.login == "copybara-service[bot]") && () {
+
+            // }
         }
+
+        return false
 
     }
     // https://api.github.com/repos/bazelbuild/bazel/issues/18305
