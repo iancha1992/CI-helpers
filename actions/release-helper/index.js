@@ -53,6 +53,9 @@ async function myfunction() {
         }
     });
 
+    console.log("Copybara!!!!")
+    console.log(gitIssueEventsResponse.data)
+
     function hasCopybara(data) {
         
 
