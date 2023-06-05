@@ -63,7 +63,8 @@ async function myfunction() {
 
 
     if ((payload.issue.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
-        console.log("Good to cherrypick!")
+        console.log("Good to cherrypick!");
+        
     }
 
 
