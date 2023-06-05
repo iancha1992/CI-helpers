@@ -42,6 +42,7 @@ async function myfunction() {
     console.log(comments.data)
 
     for (let comment in comments.data) {
+        console.log("guardian")
         console.log(comment)
     }
 
