@@ -63,7 +63,7 @@ async function myfunction() {
     console.log("git_issue?")
     console.log(git_issue.data.state)
 
-    if ((git_issue_data.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
+    if ((git_issue.data.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
         console.log("Conditions met!!!")
     }
 
