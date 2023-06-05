@@ -38,14 +38,37 @@ async function myfunction() {
     console.log("Comments?")
     console.log(commentsResponse.data)
 
-    function hasForkComment(comments) {
-        for (comment of comments) {
-            if (comment.body.includes("bazel-io fork")) {
+    function hasForkComment(data) {
+        for (c of data) {
+            if (c.body.includes("bazel-io fork")) {
                 return true
             }
         }
         return false
     }
+
+    const gitIssueEventsResponse = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/events`, {
+        headers: {
+            'X-GitHub-Api-Version': '2022-11-28'
+        }
+    });
+
+    function hasCopybara(data) {
+        
+
+        for (e of data) {
+            console.log("This is my event")
+            console.log(e)
+        }
+
+    }
+    // https://api.github.com/repos/bazelbuild/bazel/issues/18305
+    // https://api.github.com/repos/bazelbuild/bazel/issues/18305/events
+
+
+
+
+
 
     // https://api.github.com/repos/bazelbuild/bazel/issues/18305
     // const git_issue = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}`, {
@@ -62,9 +85,9 @@ async function myfunction() {
 
 
 
-    if ((payload.issue.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
-        console.log("Good to cherrypick!");
+    if ((payload.action == "closed") && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
         
+        console.log("Good to cherrypick!");
     }
 
 
