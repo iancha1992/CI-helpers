@@ -41,6 +41,19 @@ async function myfunction() {
     console.log("Comments?")
     console.log(comments.data)
 
+    for (let comment in comments) {
+        console.log(comment)
+    }
+
+
+
+
+
+
+
+
+
+
     // https://api.github.com/repos/bazelbuild/bazel/issues/18305
     const git_issue = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}`, {
         // owner: 'OWNER',
@@ -52,7 +65,11 @@ async function myfunction() {
     });
 
     console.log("git_issue?")
-    console.log(git_issue.data)
+    console.log(git_issue.data.state)
+
+    // if (git_issue_data.state == "closed") && (comments.data.) && () {
+
+    // }
 
 
 
