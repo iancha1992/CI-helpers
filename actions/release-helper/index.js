@@ -64,7 +64,7 @@ async function myfunction() {
     console.log(git_issue.data.state)
 
     if ((git_issue.data.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
-        console.log("Conditions met!!!")
+        console.log("Good to cherrypick!")
     }
 
 
