@@ -10,6 +10,18 @@ const octokit = github.getOctokit(token);
 // const octokit = new Octokit({
 //     auth: 'YOUR-TOKEN'
 // })
+
+// https://api.github.com/repos/bazelbuild/bazel/issues/18305/comments
+// https://api.github.com/repos/bazelbuild/bazel/issues/18305
+// https://api.github.com/repos/bazelbuild/bazel/issues/18305/events
+
+
+// 1) closed -> issue (https://api.github.com/repos/bazelbuild/bazel/issues/18305)
+// 2) bazel-io fork -> comments (https://api.github.com/repos/bazelbuild/bazel/issues/18305/comments)
+// 3) copybara -> events (https://api.github.com/repos/bazelbuild/bazel/issues/18305/events)
+// 4) approved -> dont' need...
+
+
 console.log("Testing adam")
 const payload = github.context.payload;
 const issue_number = payload.issue.number;
@@ -17,18 +29,33 @@ const issue_number = payload.issue.number;
 
 async function myfunction() {
     console.log("Running myfunction")
-    const result = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/comments`, {
-        owner: 'OWNER',
-        repo: 'REPO',
+    const comments = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/comments`, {
+        // owner: 'OWNER',
+        // repo: 'REPO',
         // issue_number: '9',
         headers: {
             'X-GitHub-Api-Version': '2022-11-28'
         }
     });
 
-    console.log("Result?")
-    console.log(result.data)
-    
+    console.log("Comments?")
+    console.log(comments.data)
+
+    // https://api.github.com/repos/bazelbuild/bazel/issues/18305
+    const git_issue = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}`, {
+        // owner: 'OWNER',
+        // repo: 'REPO',
+        // issue_number: '9',
+        headers: {
+            'X-GitHub-Api-Version': '2022-11-28'
+        }
+    });
+
+    console.log("git_issue?")
+    console.log(git_issue.data)
+
+
+
 }
 
 myfunction();
@@ -47,8 +74,6 @@ console.log(payload.issue.body)
 
 
 
-
-// https://api.github.com/repos/iancha1992/gh_practice/issues/8/comments
 
 
 
