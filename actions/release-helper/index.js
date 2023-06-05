@@ -29,7 +29,7 @@ const issue_number = payload.issue.number;
 
 async function myfunction() {
     console.log("Running myfunction")
-    const comments = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/comments`, {
+    const commentsResponse = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}/comments`, {
         // owner: 'OWNER',
         // repo: 'REPO',
         // issue_number: '9',
@@ -39,21 +39,16 @@ async function myfunction() {
     });
 
     console.log("Comments?")
-    console.log(comments.data)
+    console.log(commentsResponse.data)
 
-    for (comment of comments.data) {
-        console.log("guardian")
-        console.log(comment)
+    function hasForkComment(comments) {
+        for (comment of comments) {
+            if (comment.body.includes("bazel-io fork")) {
+                return true
+            }
+        }
+        return false
     }
-
-
-
-
-
-
-
-
-
 
     // https://api.github.com/repos/bazelbuild/bazel/issues/18305
     const git_issue = await octokit.request(`GET /repos/iancha1992/gh_practice/issues/${issue_number}`, {
@@ -68,9 +63,9 @@ async function myfunction() {
     console.log("git_issue?")
     console.log(git_issue.data.state)
 
-    // if (git_issue_data.state == "closed") && (comments.data.) && () {
-
-    // }
+    if ((git_issue_data.state == "closed") && (hasForkComment(commentsResponse.data) == true)) {
+        console.log("Conditions met!!!")
+    }
 
 
 
