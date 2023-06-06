@@ -41,6 +41,8 @@ async function myfunction() {
     function hasForkComment(data) {
         for (c of data) {
 
+            console.log("serene")
+
             commentBody = c.body
 
             // const regex = "bazel-io fork ";
