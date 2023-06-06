@@ -91,12 +91,22 @@ async function myfunction() {
     // console.log(git_issue.data.state)
 
 
-
-
-    if ((payload.action == "closed") && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
-        
-        console.log("Good to cherrypick!");
+    if (payload.action == "closed" && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
+        console.log("Good to cherrypick2!");
     }
+
+
+
+    else if ((payload.action == "created" || payload.action == "edited") && (payload.issue.state == "closed") && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
+        
+        console.log("Good to cherrypick2!");
+    }
+
+
+
+
+
+
 
 
 
