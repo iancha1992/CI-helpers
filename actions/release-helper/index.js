@@ -49,7 +49,7 @@ async function myfunction() {
 
             // const regex = "bazel-io fork ";
 
-            const regex = /bazel-io fork (\d\.\d\.\d.)/i;
+            const regex = /bazel-io fork (\d\.\d\.\d)/i;
 
             const found = commentBody.match(regex);
             
