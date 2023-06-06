@@ -92,7 +92,7 @@ async function myfunction() {
 
 
     if (payload.action == "closed" && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
-        console.log("Good to cherrypick2!");
+        console.log("Good to cherrypick1!");
     }
 
 
