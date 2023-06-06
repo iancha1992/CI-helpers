@@ -40,6 +40,18 @@ async function myfunction() {
 
     function hasForkComment(data) {
         for (c of data) {
+
+            commentBody = c.body
+
+            // const regex = "bazel-io fork ";
+
+            const regex = /bazel-io fork (\d\.\d\.\d.)/i;
+
+            const found = commentBody.match(regex);
+            
+            console.log("Regex found!")
+            console.log(found)
+
             if (c.body.includes("bazel-io fork")) {
                 return true
             }
@@ -100,6 +112,8 @@ async function myfunction() {
     else if ((payload.action == "created" || payload.action == "edited") && (payload.issue.state == "closed") && (hasForkComment(commentsResponse.data) == true) && (hasCopybara(gitIssueEventsResponse.data) == true)) {
         
         console.log("Good to cherrypick2!");
+
+
     }
 
 
